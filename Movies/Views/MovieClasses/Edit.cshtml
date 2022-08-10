@@ -1,0 +1,61 @@
+﻿@model Movies.Models.MovieClass
+@{ var EditName = ViewBag.EditName; }
+@{
+    ViewData["Title"] = "Editing " + EditName;
+}
+
+<h1>Edit "@EditName" details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                @Html.DropDownList("Category", new List<SelectListItem>
+{
+new SelectListItem{ Text="Action", Value = "Action" },
+new SelectListItem{ Text="Comedy", Value = "Comedy" },
+new SelectListItem{ Text="Adventure", Value = "Adventure" },
+new SelectListItem{ Text="Drama", Value = "Drama" },
+new SelectListItem{ Text="Horror", Value = "Horror" },
+new SelectListItem{ Text="Fantasy", Value = "Fantasy" },
+new SelectListItem{ Text="Sci-Fi", Value = "Sci-Fi" },
+new SelectListItem{ Text="Superhero", Value = "Superhero" },
+})
+                <!--   <input asp-for="Category" class="form-control" /> -->
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <!-- <input asp-for="Rating" class="form-control" /> -->
+                @Html.DropDownList("Rating", new List<SelectListItem>
+{
+  new SelectListItem{ Text="1*", Value = "1" },
+  new SelectListItem{ Text="2*", Value = "2" },
+  new SelectListItem{ Text="3*", Value = "3" },
+  new SelectListItem{ Text="4*", Value = "4" },
+  new SelectListItem{ Text="5*", Value = "5" },
+})
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

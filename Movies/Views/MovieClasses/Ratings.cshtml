@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Movies.Models.MovieClass>
+
+@{
+    ViewData["Title"] = "Ratings";
+}
+
+<h1 class="text-center">Ratings</h1>
+
+<table class="table" style="border:double">
+    <thead>
+        <tr style="border:groove , solid">
+            <th>
+                Rating 
+            </th>
+            <th>
+               Number of movies with that rating
+            </th>
+            <th>
+               
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody style="border:groove , solid ">
+        <tr>
+            <td>
+                <h3>1*</h3>
+            </td>
+            <td>         
+                @{ var Rating1 = ViewBag.Rating1; }
+                <h3>@Rating1</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>2*</h3>
+            </td>
+            <td>            
+                @{ var Rating2 = ViewBag.Rating2; }
+                <h3>@Rating2</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>3*</h3>
+            </td>
+            <td>            
+                @{ var Rating3 = ViewBag.Rating3; }
+                <h3>@Rating3</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>4*</h3>
+            </td>
+            <td>         
+                @{ var Rating4 = ViewBag.Rating4; }
+                <h3>@Rating4</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>5*</h3>
+            </td>
+            <td>              
+                @{ var Rating5 = ViewBag.Rating5; }
+                <h3>@Rating5</h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
